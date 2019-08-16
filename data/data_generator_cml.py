@@ -17,7 +17,7 @@ parser.add_argument('--prediction-steps', type=int, default=10, help='prediction
 parser.add_argument('--evolving-steps', type=int, default=100, help='evolving steps, default=100')
 parser.add_argument('--lambd', type=float, default=3.5, help='lambda in logistic map, default=3.6')
 parser.add_argument('--coupling', type=float, default=0.2, help='coupling coefficent, default=0.2')
-parser.add_argument('--data-name', type=str, default='./cml/data_lambd3.5_coupl0.2_node100.pickle', help='data name to save')
+parser.add_argument('--data-name', type=str, default='cml\data_lambd3.5_coupl0.2_node100.pickle', help='data name to save')
 args = parser.parse_args()
 
 
@@ -37,7 +37,8 @@ class CMLDynamicSimulator():
         n, m = A.shape
         diags = A.sum(axis=1)
         D = scipy.sparse.spdiags(diags.flatten(), [0], m, n, format='csr')
-
+        print(A.toarray())
+        A=A.astype(dtype='float32')
         self.obj_matrix = torch.FloatTensor(A.toarray())
         self.inv_degree_matrix = torch.FloatTensor(np.linalg.inv(D.toarray()))
 
@@ -93,7 +94,7 @@ if __name__ == '__main__':
         else:
             features = torch.cat((features, feat), dim=0)
     # features数据格式：sample, nodes, timesteps, dimension=1)
-    print('切割后的数据维度：', features.shape)
+    print('Data dimension after cutting：', features.shape)
 
     # shuffle
     features_perm = features[torch.randperm(features.shape[0])]

@@ -43,7 +43,7 @@ mark = random.randint(0,100000)
 print('random mark'+str(mark))
 
 # store folder
-Store_Folder = './bn/'
+Store_Folder = 'bn\\'
 
 
 
@@ -583,7 +583,7 @@ def distance_grow(dg,time):
 	plt.plot(avg_change_far[:Draw_Grow_Step])
 	plt.xlabel('time')
 	plt.ylabel('hm dis from far')
-	plt.savefig(Store_Folder + 'mark-'+str(mark)+'-hm_distance_change-'+'n:'+str(N_Node)+'-k:'+str(Average_Degree)+'.png')
+	plt.savefig(Store_Folder + 'mark-'+str(mark)+'-hm_distance_change-'+'n_'+str(N_Node)+'-k_'+str(Average_Degree)+'.png')
 
 
 
@@ -729,9 +729,9 @@ with open(adj_address,'wb') as f:
 
 # save andlyze of the data
 if Init_Way == 'all':
-	info_address = Store_Folder + 'mark-'+str(mark)+'-average_degree'+str(Average_Degree)+'-'+G_Type+'-analyze-step:'+str(all_data.shape[0])+'-node:'+str(all_data.shape[1])+'-dyn:'+DYN+'-num_of_basin'+str(analyze_res[0])+'-num_of_attractor'+str(analyze_res[1])+'-num_of_point'+str(analyze_res[2])+'-ave_cycle_len'+str(analyze_res[3])+'.pickle'
+	info_address = Store_Folder + 'mark-'+str(mark)+'-average_degree'+str(Average_Degree)+'-'+G_Type+'-analyze-step_'+str(all_data.shape[0])+'-node_'+str(all_data.shape[1])+'-dyn_'+DYN+'-num_of_basin'+str(analyze_res[0])+'-num_of_attractor'+str(analyze_res[1])+'-num_of_point'+str(analyze_res[2])+'-ave_cycle_len'+str(analyze_res[3])+'.pickle'
 elif Init_Way == 'random':
-	info_address = Store_Folder + 'mark-'+str(mark)+'-average_degree'+str(Average_Degree)+'-'+G_Type+'-analyze-step:'+str(all_data.shape[0])+'-node:'+str(all_data.shape[1])+'-dyn:'+DYN+'.pickle'
+	info_address = Store_Folder + 'mark-'+str(mark)+'-average_degree'+str(Average_Degree)+'-'+G_Type+'-analyze-step_'+str(all_data.shape[0])+'-node_'+str(all_data.shape[1])+'-dyn_'+DYN+'.pickle'
 
 
 with open(info_address,'wb') as f:
