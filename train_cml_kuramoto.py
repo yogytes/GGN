@@ -127,7 +127,7 @@ def main():
                         help='number of steps for dynamics learning (default: 30)')
     parser.add_argument('--reconstruct-steps', type=int, default=5,
                         help='number of steps for reconstruction (default: 5)')
-    parser.add_argument('--no-cuda', action='store_true', default=False,
+    parser.add_argument('--no-cuda', action='store_true', default=True,
                         help='disables CUDA training')
     parser.add_argument('--seed', type=int, default=2050,
                         help='random seed (default: 2050)')
